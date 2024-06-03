@@ -1,6 +1,9 @@
 package com.shavemax.shavemax.exception;
 
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.exceptions.TokenExpiredException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -25,5 +28,17 @@ public class AppExceptionHandler {
     @ExceptionHandler(ForbiddenException.class)
     public ResponseEntity<CustomErrorResponse> userNotFound(ForbiddenException forbiddenException) {
         return new ResponseEntity<>(forbiddenException.generateCustomErrorResponse(), HttpStatus.valueOf(forbiddenException.getHttpStatusCode()));
+    }
+
+    @ExceptionHandler(JWTVerificationException.class)
+    public ResponseEntity<CustomErrorResponse> userNotFound(JWTVerificationException jwtVerificationException) {
+        CustomErrorResponse customErrorResponse = new CustomErrorResponse(HttpStatus.BAD_REQUEST.value(), "Token expired", jwtVerificationException.getMessage());
+        return new ResponseEntity<>(customErrorResponse, HttpStatusCode.valueOf(HttpStatus.BAD_REQUEST.value()));
+    }
+
+    @ExceptionHandler(TokenExpiredException.class)
+    public ResponseEntity<CustomErrorResponse> userNotFound(TokenExpiredException tokenExpiredException) {
+        CustomErrorResponse customErrorResponse = new CustomErrorResponse(HttpStatus.BAD_REQUEST.value(), "Token expired", tokenExpiredException.getMessage());
+        return new ResponseEntity<>(customErrorResponse, HttpStatusCode.valueOf(HttpStatus.BAD_REQUEST.value()));
     }
 }
