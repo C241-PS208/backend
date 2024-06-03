@@ -25,16 +25,16 @@ public class ShavemaxApplication {
 		SpringApplication.run(ShavemaxApplication.class, args);
 	}
 
-	@Bean
-	@Transactional
-	CommandLineRunner run(RoleRepository roleRepository) {
-		return args -> {
-			for (RoleEnum roleName : RoleEnum.values()) {
-				Role role = new Role();
-				role.setName(roleName);
-				roleRepository.save(role);
-			}
-		};
-	}
+//	@Bean
+//	@Transactional
+//	CommandLineRunner run(RoleRepository roleRepository) {
+//		return args -> {
+//			for (RoleEnum roleName : RoleEnum.values()) {
+//				Role role = new Role();
+//				role.setName(roleName);
+//				roleRepository.save(role);
+//			}
+//		};
+//	}
 
 }
