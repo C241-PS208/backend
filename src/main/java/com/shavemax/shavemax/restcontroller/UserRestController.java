@@ -45,6 +45,7 @@ public class UserRestController {
 
 
     // ENDPOINTS FOR TESTING PURPOSES ONLY
+    
     @GetMapping("/u")
     @ValidateToken(RoleEnum.USER)
     public ResponseEntity<?> userOnly() {
