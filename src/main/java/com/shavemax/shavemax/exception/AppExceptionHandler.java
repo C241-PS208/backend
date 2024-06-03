@@ -16,28 +16,28 @@ public class AppExceptionHandler {
     }
 
     @ExceptionHandler(InvalidCredentialsException.class)
-    public ResponseEntity<CustomErrorResponse> userNotFound(InvalidCredentialsException invalidCredentialsException) {
+    public ResponseEntity<CustomErrorResponse> invalidCredentials(InvalidCredentialsException invalidCredentialsException) {
         return new ResponseEntity<>(invalidCredentialsException.generateCustomErrorResponse(), HttpStatus.valueOf(invalidCredentialsException.getHttpStatusCode()));
     }
 
     @ExceptionHandler(UserAlreadyExistsException.class)
-    public ResponseEntity<CustomErrorResponse> userNotFound(UserAlreadyExistsException userAlreadyExistsException) {
+    public ResponseEntity<CustomErrorResponse> userAlreadyExists(UserAlreadyExistsException userAlreadyExistsException) {
         return new ResponseEntity<>(userAlreadyExistsException.generateCustomErrorResponse(), HttpStatus.valueOf(userAlreadyExistsException.getHttpStatusCode()));
     }
 
     @ExceptionHandler(ForbiddenException.class)
-    public ResponseEntity<CustomErrorResponse> userNotFound(ForbiddenException forbiddenException) {
+    public ResponseEntity<CustomErrorResponse> forbidden(ForbiddenException forbiddenException) {
         return new ResponseEntity<>(forbiddenException.generateCustomErrorResponse(), HttpStatus.valueOf(forbiddenException.getHttpStatusCode()));
     }
 
     @ExceptionHandler(JWTVerificationException.class)
-    public ResponseEntity<CustomErrorResponse> userNotFound(JWTVerificationException jwtVerificationException) {
+    public ResponseEntity<CustomErrorResponse> jwtVerification(JWTVerificationException jwtVerificationException) {
         CustomErrorResponse customErrorResponse = new CustomErrorResponse(HttpStatus.BAD_REQUEST.value(), "Token expired", jwtVerificationException.getMessage());
         return new ResponseEntity<>(customErrorResponse, HttpStatusCode.valueOf(HttpStatus.BAD_REQUEST.value()));
     }
 
     @ExceptionHandler(TokenExpiredException.class)
-    public ResponseEntity<CustomErrorResponse> userNotFound(TokenExpiredException tokenExpiredException) {
+    public ResponseEntity<CustomErrorResponse> tokenExpired(TokenExpiredException tokenExpiredException) {
         CustomErrorResponse customErrorResponse = new CustomErrorResponse(HttpStatus.BAD_REQUEST.value(), "Token expired", tokenExpiredException.getMessage());
         return new ResponseEntity<>(customErrorResponse, HttpStatusCode.valueOf(HttpStatus.BAD_REQUEST.value()));
     }
