@@ -61,6 +61,7 @@ public class UserServiceImpl implements UserService {
         cleanUserDTO.setEmail(user.getEmail());
         cleanUserDTO.setName(user.getName());
         cleanUserDTO.setRole(user.getRole());
+        cleanUserDTO.setGender(user.getGender());
         return cleanUserDTO;
     }
 
@@ -76,6 +77,7 @@ public class UserServiceImpl implements UserService {
         cleanUserDTO.setEmail(user.getEmail());
         cleanUserDTO.setName(user.getName());
         cleanUserDTO.setRole(user.getRole());
+        cleanUserDTO.setGender(user.getGender());
         return cleanUserDTO;
     }
 

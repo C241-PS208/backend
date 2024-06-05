@@ -17,4 +17,6 @@ public class SignUpDTO {
     private String password;
     @NotNull
     private String name;
+    @NotNull
+    private String gender;
 }
