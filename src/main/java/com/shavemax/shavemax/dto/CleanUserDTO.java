@@ -14,4 +14,6 @@ public class CleanUserDTO {
     private String email;
     @NotNull
     private Role role;
+    @NotNull
+    private String gender;
 }

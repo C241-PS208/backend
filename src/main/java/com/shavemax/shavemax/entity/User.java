@@ -39,6 +39,8 @@ public class User {
     @JoinColumn(name = "role_id")
     private Role role;
 
+    private String gender;
+
     @CreationTimestamp
     private Instant createdAt;
 

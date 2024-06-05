@@ -76,6 +76,7 @@ public class AuthServiceImpl implements AuthService {
         user.setRole(roleRepository.findRoleByName(RoleEnum.USER));
         user.setEmail(signUpDTO.getEmail());
         user.setPassword(passwordEncoder.encode(signUpDTO.getPassword()));
+        user.setGender(signUpDTO.getGender());
         userService.saveUser(user);
 
         Token token = generateToken(user);
