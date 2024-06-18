@@ -17,7 +17,7 @@ import java.time.Instant;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "shavemax_user")
+@Table(name = "shavemax_user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
     // TODO
     @Id

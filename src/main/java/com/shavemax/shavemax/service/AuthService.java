@@ -18,5 +18,5 @@ public interface AuthService {
 //    ResponseEntity<String> verifyChangeEmail(VerificationChangeEmailDTO verificationChangeEmailDTO);
 //    ResponseEntity<String> verifyForgotPassword(VerificationForgotPasswordDTO verificationForgotPasswordDTO);
 //    ResponseEntity<String> resendEmail(ResendEmailDTO resendEmailDTO);
-//    List<User> starter();
+    void starter();
 }
