@@ -4,6 +4,7 @@ import com.shavemax.shavemax.config.AuthConfigProperties;
 import com.shavemax.shavemax.dto.CleanUserDTO;
 import com.shavemax.shavemax.dto.SignInDTO;
 import com.shavemax.shavemax.dto.SignUpDTO;
+import com.shavemax.shavemax.entity.Role;
 import com.shavemax.shavemax.entity.Token;
 import com.shavemax.shavemax.entity.User;
 import com.shavemax.shavemax.enums.RoleEnum;
@@ -97,5 +98,17 @@ public class AuthServiceImpl implements AuthService {
         token.setIssuedAt(Instant.now());
         token.setExpiredAt(Instant.now().plus(1, ChronoUnit.MINUTES));
         return tokenRepository.save(token);
+    }
+
+    @Override
+    public void starter() {
+        List<Role> roles = roleRepository.findAll();
+        if (roles.isEmpty()) {
+            for (RoleEnum roleName : RoleEnum.values()) {
+                Role role = new Role();
+                role.setName(roleName);
+                roleRepository.save(role);
+            }
+        }
     }
 }

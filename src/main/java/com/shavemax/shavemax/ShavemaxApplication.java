@@ -3,6 +3,7 @@ package com.shavemax.shavemax;
 import com.shavemax.shavemax.entity.Role;
 import com.shavemax.shavemax.enums.RoleEnum;
 import com.shavemax.shavemax.repository.RoleRepository;
+import com.shavemax.shavemax.service.AuthService;
 import jakarta.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,16 +26,12 @@ public class ShavemaxApplication {
 		SpringApplication.run(ShavemaxApplication.class, args);
 	}
 
-//	@Bean
-//	@Transactional
-//	CommandLineRunner run(RoleRepository roleRepository) {
-//		return args -> {
-//			for (RoleEnum roleName : RoleEnum.values()) {
-//				Role role = new Role();
-//				role.setName(roleName);
-//				roleRepository.save(role);
-//			}
-//		};
-//	}
+	@Bean
+	@Transactional
+	CommandLineRunner run(AuthService authService) {
+		return args -> {
+			authService.starter();
+		};
+	}
 
 }
