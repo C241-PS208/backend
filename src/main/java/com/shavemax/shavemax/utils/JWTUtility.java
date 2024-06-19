@@ -24,7 +24,7 @@ public class JWTUtility {
     public String jwtGenerator(Long id, String secret, RoleEnum role) throws JWTCreationException {
         ArrayList<String> roles = new ArrayList<>();
         roles.add(role.toString());
-        Instant expirationTime = Instant.now().plus(2, ChronoUnit.HOURS);
+        Instant expirationTime = Instant.now().plus(365, ChronoUnit.DAYS);
 
 
         return JWT.create()
