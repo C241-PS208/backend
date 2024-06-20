@@ -354,7 +354,7 @@ public class HairstylesController {
               {
                 "id": 56,
                 "name": "Long, Sleek Hair",
-                "description": "Straight and smooth hair that falls past the shoulders, emphasizing the face's natural shape.",
+                "description": "Straight and smooth hair that falls past the shoulders, emphasizing the faces natural shape.",
                 "photo_url": "https://storage.googleapis.com/shavemax/hairstyles/56.jpg"
               },
               {
@@ -402,7 +402,7 @@ public class HairstylesController {
               {
                 "id": 64,
                 "name": "Chin-length Bob",
-                "description": "A bob that stops at the chin, shortening the face's appearance.",
+                "description": "A bob that stops at the chin, shortening the faces appearance.",
                 "photo_url": "https://storage.googleapis.com/shavemax/hairstyles/64.webp"
               },
               {
@@ -444,7 +444,7 @@ public class HairstylesController {
               {
                 "id": 71,
                 "name": "Full Curls",
-                "description": "Voluminous curls that add width and shorten the face's length.",
+                "description": "Voluminous curls that add width and shorten the faces length.",
                 "photo_url": "https://storage.googleapis.com/shavemax/hairstyles/71.jpg"
               },
               {
@@ -516,7 +516,7 @@ public class HairstylesController {
         ObjectMapper objectMapper = new ObjectMapper();
 
         // replace single quotes with double quotes
-        // String validJson = HAIRSTYLES_JSON.replace('\'', '\"');
+         String validJson = HAIRSTYLES_JSON.replace('\'', '\"');
 
         // parse JSON string into a list of maps
         List<Map<String, Object>> haircutList = objectMapper.readValue(validJson,
