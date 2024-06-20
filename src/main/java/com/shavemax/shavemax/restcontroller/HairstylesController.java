@@ -516,7 +516,7 @@ public class HairstylesController {
         ObjectMapper objectMapper = new ObjectMapper();
 
         // replace single quotes with double quotes
-        String validJson = HAIRSTYLES_JSON.replace('\'', '\"');
+        // String validJson = HAIRSTYLES_JSON.replace('\'', '\"');
 
         // parse JSON string into a list of maps
         List<Map<String, Object>> haircutList = objectMapper.readValue(validJson,
