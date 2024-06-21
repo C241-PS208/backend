@@ -48,7 +48,7 @@ an endpoint with POST method to sign in or login to use shavemax application fea
 ```http
   GET /api/hairstyles/all
 ```
-an endpoint with GET method that returns all of the available hairstyles.
+a private endpoint with GET method that returns all of the available hairstyles. In order to access it, this endpoint requires user to be registered and authenticated beforehand.
 
 This application is deployed via Google Cloud Run and connected to Google Cloud SQL. Then, all the user data will be stored in Google Cloud SQL with PostgreSQL
 
